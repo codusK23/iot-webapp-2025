@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Object</title>
+</head>
+<body>
+    <script>
+        // 객체 선언
+        var dried_mango = {
+            name: "7D dried mango",
+            manufacturer: "7D Foods Corporation",
+            weight: "500g",
+            origin: "Philippines",
+            calories: 320
+        }
+        console.log(dried_mango);
+        console.log(JSON.stringify(dried_mango));
+        console.log(dried_mango["name"]);
+        console.log(dried_mango.origin);
+
+        for (var i in dried_mango){
+            console.log(i + " : " + dried_mango[i]);
+        }
+    </script>
+</body>
+</html>
