@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using MyPortfolioWebApp.Models;
 
 namespace MyPortfolioWebApp.Controllers
@@ -147,6 +141,12 @@ namespace MyPortfolioWebApp.Controllers
                     if (existingBoard == null)
                     {
                         return NotFound();
+                    }
+
+                    if (!string.Equals(existingBoard.Email, board.Email, StringComparison.OrdinalIgnoreCase))
+                    {
+                        ModelState.AddModelError("Email", "이메일이 일치하지 않아 수정할 수 없습니다.");
+                        return View(board);
                     }
 
                     existingBoard.Title = board.Title;

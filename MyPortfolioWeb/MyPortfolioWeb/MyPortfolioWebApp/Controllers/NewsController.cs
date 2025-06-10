@@ -60,7 +60,7 @@ namespace MyPortfolioWebApp.Controllers
             ViewBag.Search = search;  // 검색어
 
             // 저장프로시저 호출
-            var news = await _context.News.FromSql($"CALL New_PagingBoard({startCount}, {endCount}, {search})").ToListAsync();
+            var news = await _context.News.FromSql($"CALL New_PagingNews({startCount}, {endCount}, {search})").ToListAsync();
             return View(news);
         }
 

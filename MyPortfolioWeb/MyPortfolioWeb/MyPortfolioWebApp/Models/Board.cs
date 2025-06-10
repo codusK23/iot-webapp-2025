@@ -13,11 +13,10 @@ public class Board
     public int Id { get; set; }
 
     [DisplayName("이메일")]
-    [BindNever]
+    [Required(ErrorMessage = "{0}은 필수입니다.")]
     public string Email { get; set; }
 
     [DisplayName("작성자")]
-    [BindNever]
     public string? Writer { get; set; }
 
     [DisplayName("제목")]
