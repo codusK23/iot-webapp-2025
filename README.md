@@ -321,7 +321,6 @@
 ### 프론트엔드 활용
 - HTML5 + CSS3 + JS + BootStrap 응용예제
     - Bootstrap Image Gallery
-      
     https://github.com/user-attachments/assets/2d0dea4a-9007-4100-a9e1-b75115a9afc1
 
 
