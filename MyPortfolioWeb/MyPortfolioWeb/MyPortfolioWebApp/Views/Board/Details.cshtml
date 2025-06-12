@@ -51,11 +51,8 @@
             </dl>
         </div>
         <div>
-            @if (SignInManager.IsSignedIn(User))
-            {
-                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-sm btn-warning">Edit</a>
-                <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-sm btn-danger">Delete</a>
-            }
+            <a asp-action="VerifyEmail" asp-route-id="@Model?.Id" class="btn btn-sm btn-warning">Edit</a>
+            <a asp-action="VerifyEmailForDelete" asp-route-id="@Model?.Id" class="btn btn-sm btn-danger">Delete</a>
             <a asp-action="Index" class="btn btn-sm btn-success">List</a>
         </div>
     </div>

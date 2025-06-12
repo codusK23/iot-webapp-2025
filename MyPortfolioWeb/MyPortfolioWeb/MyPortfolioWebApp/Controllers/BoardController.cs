@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolioWebApp.Models;
+using System;
 
 namespace MyPortfolioWebApp.Controllers
 {
@@ -113,6 +114,13 @@ namespace MyPortfolioWebApp.Controllers
                 return NotFound();
             }
 
+            if (TempData["Verified"]?.ToString() != "true")
+            {
+                return RedirectToAction("VerifyEmail", new { id });
+            }
+
+            TempData.Keep("Verified"); // TempData 유지
+
             var board = await _context.Board.FindAsync(id);
             if (board == null)
             {
@@ -171,20 +179,89 @@ namespace MyPortfolioWebApp.Controllers
             return View(board);
         }
 
-        // GET: Board/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // 이메일 입력 화면(GET)
+        [HttpGet]
+        public IActionResult VerifyEmail(int id, string action = "edit")
         {
-            if (id == null)
-            {
+            // id로 게시글 존재 여부 확인
+            var board = _context.Board.Find(id);
+            if (board == null)
                 return NotFound();
+
+            ViewBag.Action = action;
+            return View("VerifyEmail", board);
+        }
+
+        // 이메일 확인 처리(POST)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult VerifyEmail(int id, string email, string action = "edit")
+        {
+            var board = _context.Board.Find(id);
+            if (board == null)
+                return NotFound();
+
+            if (!string.Equals(board.Email?.Trim(), email?.Trim(), StringComparison.OrdinalIgnoreCase))
+            {
+                ModelState.AddModelError("Email", "이메일이 일치하지 않습니다.");
+                ViewBag.BoardId = id;
+                ViewBag.Action = action;
+                return View("VerifyEmail", board);  // 뷰 이름 명시 + 모델 전달
             }
 
-            var board = await _context.Board
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (board == null)
+            TempData["Verified"] = "true";
+            if (action == "delete")
             {
-                return NotFound();
+                return RedirectToAction("Delete", new { id });
             }
+            else
+            {
+                return RedirectToAction("Edit", new { id });
+            }
+        }
+
+        // 이메일 인증 화면 (삭제용)
+        [HttpGet]
+        public IActionResult VerifyEmailForDelete(int id)
+        {
+            var board = _context.Board.Find(id);
+            if (board == null) return NotFound();
+
+            ViewBag.BoardId = id;
+            return View("VerifyEmailForDelete", board);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult VerifyEmailForDelete(int id, string email)
+        {
+            var board = _context.Board.Find(id);
+            if (board == null) return NotFound();
+
+            if (!string.Equals(board.Email?.Trim(), email?.Trim(), StringComparison.OrdinalIgnoreCase))
+            {
+                ModelState.AddModelError("Email", "이메일이 일치하지 않습니다.");
+                ViewBag.BoardId = id;
+                return View("VerifyEmailForDelete", board);
+            }
+
+            TempData[$"Verified_Delete_{id}"] = "true";
+            return RedirectToAction("Delete", new { id });
+        }
+
+        // 삭제 GET (확인 페이지)
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            if (TempData[$"Verified_Delete_{id}"]?.ToString() != "true")
+            {
+                return RedirectToAction("VerifyEmailForDelete", new { id });
+            }
+            TempData.Keep($"Verified_Delete_{id}");
+
+            var board = await _context.Board.FindAsync(id);
+            if (board == null) return NotFound();
 
             return View(board);
         }
@@ -194,13 +271,20 @@ namespace MyPortfolioWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (TempData[$"Verified_Delete_{id}"]?.ToString() != "true")
+            {
+                return RedirectToAction("VerifyEmailForDelete", new { id });
+            }
+
+            TempData.Keep($"Verified_Delete_{id}");
+
             var board = await _context.Board.FindAsync(id);
             if (board != null)
             {
                 _context.Board.Remove(board);
+                await _context.SaveChangesAsync();
             }
-
-            await _context.SaveChangesAsync();
+            TempData.Remove($"Verified_Delete_{id}");
 
             TempData["success"] = "게시글 삭제 성공!";
             return RedirectToAction(nameof(Index));
