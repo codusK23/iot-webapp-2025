@@ -1,64 +1,65 @@
 # iot-webapp-2025
+
 <p>IoT 개발자 과정 <a href="https://dotnet.microsoft.com/ko-kr/apps/aspnet" target="_blank" style="color:red;">ASP.NET Core</a> 학습 리포지토리</p>
 
 ## 1일차
 
 ### Web
-- 인터넷 상에서 사용되는 서비스 중 하나
+- 인터넷 상에 사용되는 서비스 중 하나
 - 웹을 표현하는 기술 : HTML(Hyper Text Markup Language). XML(eXtensable Markup Language)의 경량화 버전
 - 2014년 이후 HTML5로 적용되고 있음
 
 #### 웹 기술
-- 웹 표준기술(프론트엔드) : HTML5(웹페이지 구조) + CSS3(디자인) + JavaScript6(인터렉티브)
+- 웹 표준기술(프론트엔드) : HTML5(웹 페이지 구조) + CSS3(디자인) + JavaScript(인터렉티브)
 - 웹 `서버`기술(백엔드) : ASP.NET Core(C#|VB), SpringBoot(Java), Flask|dJango(Python), CGI(PHP, C), Ruby, ...
-- 웹 서비스(서버) : 프론트엔트 + 백엔드
-- 웹 브라우저 상에서 동작 : 현재는 웹 브라우저 상에서만 동작하는 경계가 사라졌음
+- 웹 서비스 : 프론트엔드 + 백엔드
+- 웹 브라우저 상에서 동작 : 현재는 웹 브라우저 상에서만 동작하는 경계가 사라졌음 
 
-#### HTML5
-- 웹페이지를 구성하는 언어(근간, 기본)
+#### HTML 5
+- 웹 페이지를 구성하는 언어(근간, 기본)
 - HTML 상에서도 디자인을 할 수 있으나, 현재는 CSS로 분리
 
-#### CSS3
-- Cascading Style Sheet : 객체지향에 사용되는 부모 자식 관계로 디자인 하는 기술
+#### CSS 3
+- Cascading Style Sheet : 객체지향에 사용되는 부모자식관계로 디자인하는 기술
 - 아주 쉬운 문법으로 구성됨
 
-#### JavaScript
-- 표준명 ECMAScript 2024
-- Java와 전혀 관계 없음. Java의 문법을 차용해서 사용한 웹 스크립트 언어
+#### JavaScript 
+- 표준명 ECMAScript 2024.
+- Java와 전혀 관계없음. Java의 문법을 차용해서 사용한 웹 스크립트 언어
 - 엄청난 발전을 이뤄 여러가지 기술로 분리
     - React.js, View.js 등의 프론트엔드 기술 언어로 분파
     - Node.js와 같은 웹 서버기술에도 적용
     - VS Code(아톰에디터 기반) 같은 개발도구를 만드는데도 사용
-    - 3D 게임, 모바일 개발 등 다양한 분야에 사용
+    - 3D게임, 모바일 개발 등 다양한 분야에 사용
 
 #### 웹 서버기술
 - `ASP.NET Core` : C#/VB언어도 웹 서버를 개발
 - SpringBoot, Flask 등 다른 언어로 웹 서버를 개발해도 무방
 
-#### 왜 웹을 공부해야하는가?
-- 스마트팩토리 솔루션을 대부분 웹으로 개발(사용범위 제약을 없애기 위해서)
+#### 왜 웹을 공부해야하나?
+- 스마트팩토리 솔루션을 대부분 웹으로 개발(사용 범위 제약을 없애기 위해서)
     - 웹 사이트, 일부분 모바일 앱 동시 개발
-- 스마트홈(IoT), ERP, 병원예약, 호텔예약, 인터넷뱅킹, 온라인서점 ...
+- 스마트홈(IoT), ERP, 병원예약, 호텔예약, 인터넷뱅킹, 온라인서점 ... 
 - 모든 IT/ICT 개발에 웹 기술은 포함되어 있음
 
 #### HTTP
-- Hyter Text Transfer Protocol
+- HyterText Transfer Protocol
 - 웹을 요청/응답하는 프로토콜
-- HTTPs : PTTP with secure. 보안을 강화한 HTTP 프로토콜
+- HTTPs : HTTP with secure. 보안을 강화한 HTTP 프로토콜
 
-### 웹 표준기술 학습
+### 웹 표준기술 - HTML
 
 #### VS Code 확장설치
 - Live Server
 
 #### HTML 구조
 - [소스](./day01/html01.html)
-- html 태그 내에 head, body로 구성 (무조건!)
-- README.md에도 HTML 태그를 그대로 사용가능 (heading은 적용 안 됨)
+- html 태그 내에 head, body로 구성(무조건!)
+- README.md에도 HTML 태그를 그대로 사용가능(heading은 적용안됨)
 - VS Code에서 html:5 자동생성
 - [소스](./day01/html02.html), [소스](./day01/html03.html)
 - CSS가 소스라인을 많이 사용. css는 외부스타일로 분리 사용
-- JS도 소스라인이 매우 긺. JS도 외부스크립트로 분리 사용
+- JS도 소스라인이 매우 김. JS도 외부스크립트로 분리 사용
 - 웹 브라우저의 개발자모드(F12)로 디버깅을 하는 것이 일반적
 
 #### HTML 기본태그(body에 사용)
@@ -71,7 +72,8 @@
 - table, tr, th, td : 테이블, 테이블로, 테이블헤더, 테이블컬럼
 - img, audio, video : 이미지, 오디오, 비디오 
 - [소스](./day01/html05.html), [소스](./day01/html06.html)
-- form, input, button, select, textarea, label : 입력양식, 텍스트박스, 버튼, 콤보박스, 여러줄텍스트박스, 라벨
+- form, input, button, select, textarea, label : 입력양식, 텍스트박스, 버튼, 콤보박스, 여러 줄 텍스트박스, 라벨
+    - form action에 `get`과 `post`. (dialog는 무시)
 - progress : 진행률
 - div, span : 공간분할
 
@@ -94,7 +96,7 @@
 ### 웹 표준기술 - CSS
 
 #### 개요
-- 마크업 언어에 표시방법을 기술하는 종속형 시트(계단식 스타일시트)
+- 마크업 언어에 표시 방법을 기술하는 종속형 시트(계단식 스타일시트)
 - WPF는 CSS와 유사한 방식을 차용
 - 문법
     ```css
@@ -105,8 +107,7 @@
     ```
 - html 태그 속성
     - id : 웹페이지 하나당 한번만 쓸것
-    - class : 여러번, 여러 개 사용가능
-
+    - class : 여러번, 여러개 사용가능
 - UI기술로 많은 분야에서 사용
     - Qt, PyQt, Electron, Flutter(모바일), React Native(모바일), React.js, ...
 - [소스](./day01/html08.html)
@@ -126,12 +127,12 @@
 - [소스](./day02/html05.html)
 
 #### 기본문법
-- HTML내에 Script 태그 내에 작성
+- HTML내에 script 태그 내에 작성
 - 변수 선언이 var(전역, 지역), let(지역)
 - 문장 끝에 ; 생략이 가능하지만 되도록 사용할 것
 - 키워드
     <img src="./image/web0001.png" width="600">
-- 화면메시지박스
+- 화면메시지박스 : alert()
 - 디버깅 출력 : console.log()
     ```js
     <script>
@@ -142,9 +143,9 @@
         // 출력
         alert(2 * radius * PI);
         console.log(2 * radius * PI);
-        // 개발자도구 > 소스에서 디버깅 가능
+        // 개발자도구 > 소스에서 디버깅가능
         // VisualStudio와 동일
-    </script>
+    </script>    
     ```
 - 변수타입 : 숫자, 문자열, 불린, ... 
     - null : undefined
@@ -159,7 +160,6 @@
 - [소스](./day02/html06.html)
 - JSON : 자바스크립트 객체를 표현하는 방식
 - 매우 편리하여 표준으로 지정하고 모든 IT분야에서 사용 중
-
     ```js
     var json_data = {
         key1: value1,
@@ -191,7 +191,7 @@
     obj.style.color = 'blue';
     obj.innerHTML = "변경 문자열";
     obj.getAttribute("속성");
-    obj.setAttribute("속성", 변경할값);
+    obj.setAttribute("속성", 변경할 값);
 
     window.onload = function(event) {
         // ...
@@ -251,7 +251,6 @@
 #### 부트스트랩 학습
 - 버튼 사용법
     <img src="./image/web0004.png" width="600">
-
 - 미디어쿼리 : 웹페이지 사이즈에 따른 사용법을 위해 필요
     - Bootstrap에서 sm, md, lg 등의 infix를 사용할 경우가 많음  
     - X-Small : None(사용할 이름없음) (< 576px)
@@ -260,33 +259,28 @@
     - Large : lg (>= 992px)
     - Extra large : xl (>= 1200px)
     - Extra extra large : xxl (>= 1400px)
-
 - 컨테이너 : 기본 레이아웃에서 가장 중요! 그리드 스타일이라고 부름
     - container - 일반적인 넓이사용. 양쪽에 여백이 존재
     - container-fluid - 여백없이 웹페이지를 꽉채우는 스타일
     - container > row > col 형식으로 사용
     - 각 grid는 최대 12개까지 사용
-
 - 정렬 클래스
     - * : start, center, end
     - text-*
     - align-items-*
     - align-self-*
     - justify-content-*
-
 - 거터 : 갭(안쪽여백), padding과 동일
     - g, gx, gy, g-number, gx-number, gy-number
     - number : 1부터 5까지 사용가능
     - g : gx + gy
     - gx : 왼쪽, 오른쪽 안여백
     - gy : 위쪽, 아래쪽 안여백
-
 - 여백을 위한 클래스
     - -number포함 : 1~5까지
     - p, ps, pt, pb, pe, px, py : padding
     - m, ms(left), mt, mb, me(right), mx, my : margin
     - start, top, end, bottom : 배율로 조정
-
 - 컴포넌트 학습
     - Accordion
     - Alert : Button 클래스와 동일 primary ~ light(link는 없음)
@@ -298,7 +292,6 @@
     - Progress, Spinners : 프로그레스바, 대기용 컴포넌트
     - Carousel : 이미지 갤러리
     <img src="./image/web0005.png" width="600">
-
 - 아이콘
     - [사이트](https://icons.getbootstrap.com/)
     - 부트스트랩이 지원해주는 아이콘
@@ -328,8 +321,8 @@
 ### 프론트엔드 활용
 - HTML5 + CSS3 + JS + BootStrap 응용예제
     - Bootstrap Image Gallery
-
-    <!!!!!!!!동영상삽입!!!!!!!!>
+    <Web0001.mp4 동영상 삽입!!!!!!!!!!!!!!!!!>
+    https://github.com/user-attachments/assets/fd0f5d4a-a8b7-4c84-bbad-cd682d40f5c0
 
     
 ## 4일차
@@ -338,9 +331,7 @@
 - HTML5 + CC3 + JS 응용예제
 - Modern Business 템플릿 클로닝
     - https://startbootstrap.com/template/modern-business 
-
     <img src="./image/web0006.png" width="700">
-
     - 압축파일 다운로드 후 압축해제
 
 #### HTML5 Responsive Web template 
@@ -369,6 +360,8 @@
 8. 태그 내에 Bootstrap 클래스 적용
 9. Bootstrap Example의 테마 적용
 10. 전체화면
+    <Web0002.mp4 동영상 삽입!!!!!!!!!!!!!!!!!>
+    https://github.com/user-attachments/assets/d205515e-3edc-4a2a-a538-a08137dad2b1
 
 
 ## 5일차
@@ -379,34 +372,29 @@
 - CSR : Client-Side Rendering. 대부분의 SPA가 동작하는 방식. 렌더링을 브라우저에서 처리
 - SSR : Server-Side Rendering. MPA가 위주. HTML을 서버에서 생성후 전달(naver, google 등 포털)
 
-### ASP.NET Core
+### ASP.NET Core 
 - ASP : Active Server Page. Classic ASP라고 부름. 동적인 웹페이지를 만드는 기술
 - 프론트엔드(HTML + CSS + JS) 상에서 동작하는 기술을 동적 웹페이지라고 부르지 않음
 - 동적 웹페이지 : 사용자가 웹서버에 요청을 해서 값이 변경되는 것
-
     <img src="./image/web0007.png" width="600">
-
-- ISS : Internet Information Service. MS가 윈도우 운영체제에 포함시킨 `웹 서버`
+- IIS : Internet Information Service. MS가 윈도우 운영체제에 포함시킨 `웹 서버`
     - 윈도우 프로그램 추가 제거(appwiz.cpl)
     - 윈도우 기능 켜기/끄기 > 인터넷 정보 서비스 클릭 후 확인
-
 - 윈도우 설정은 일반 사용자용, 제어판은 개발자용
     - 제어판 > Windows Tools > IIS(인터넷 정보 서비스) 관리자
-
     <img src="./image/web0008.png" width="600">
-
 - Java가 1995년 출현하면서 Classic ASP, Classic VB 등의 옛날 MS기술이 위협
 - 2000년 초반에 .NET 프레임워크를 출시
-    - C#, VB(.NET) 새로운 언어들이 포함됨
+    - C#, VB(.NET) 새로운 언어 들이 포함됨
     - 위의 언어들로 개발할 수 있는 웹 기술인 ASP.NET 등장
     - 이후 언어는 계속 발전
-    - 2016년에 멀티플랫폼 ASP.NET Core
-    - 2020년에 .NET Framework(Windows전용)을 .NET 5.0(멀티플랫폼)로 변경
+    - 2016년에 크로스플랫폼 ASP.NET Core
+    - 2020년에 .NET Framework(Windows전용)을 .NET 5.0(크로스플랫폼)로 변경
 
-#### ASP.NET 장점
-- 빠르다 : 초창기 ASP.NET은 C#으로 Winforms 만드는 것처럼 개발(개발생산성은 좋지만 렌더링 속도가 매우 느렸음). MVC모델로 분리하면서 윈폼식 개발을 제거
+#### ASP.NET Core 장점
+- 빠르다 : 초창기 ASP.NET은 C#으로 Winforms 만드는 것처럼 개발(개발생산성은 좋지만 렌더링 속도가 무지하게 느렸음). MVC모델로 분리하면서 윈폼식 개발을 제거
 - 오픈소스 : Java JSP/Spring, Python Flask 등이 오픈소스로 발전하니까 MS도 오픈소스 전향
-- 크로스플랫폼 : Windows에서만 동작하던 것을 MacOS, Linux 등으로 확대시킴
+- 크로스플랫폼 : Windows에서만 동작하던 걸, MacOS, Linux 등으로 확대시킴
 - 종속성 주입 : Dependency Injection. Spring 쪽에 특화되던 기술을 접목해옴. 개발시간 절약
 - 개발용 웹서버 : IIS가 Visual Studio에 포함. 웹서버 설정을 할 필요가 없음
 - 클라우드 친화적 : MS Azure 등의 클라우드와 연계가 쉬움
@@ -415,9 +403,9 @@
 
 #### ASP.NET Core 활용처
 - `웹 사이트` 개발 : 기본적인 내용
-- `풀스택` 개발 : 프론트엔드 (React, Vue, Angular js) + 백엔드(ASP.NET Core)
-- `API 서버` 개발 : TMDB 영화 데이터 조회 API, Youtube API, 데이터 포털 API 등의 데이터만 주고받는 서비스 개발
-- 도메인 특화 솔루션 개발 : MES, ERP, SmartFactory, SmartShip 등
+- `풀스택` 개발 : 프론트엔드(React, Vue, Angular js) + 백엔드(ASP.NET Core)
+- `API 서버` 개발 : TMDB 영화 데이터 조회 API, Youtube API, 데이터포털 API 등의 데이터만 주고받는 서비스 개발
+- 도메인특화 솔루션 개발 : MES, ERP, SmartFactory, SmartShip 등
 - 이커머스 개발 : 쇼핑몰, 온라인 서점, 여행예매 사이트 등
 
 #### ASP.NET Core 시작
@@ -459,7 +447,6 @@
 - appsettings.json : 로그 등 애플리케이션 설정
 - Program.cs : C# 프로그램 시작점. 실제 웹앱이 시작될 때 필요한 초기화 담당
     - 중요 소스
-
     ```cs
     // ...
     app.UseStaticFiles();   // 정적인 HTML,CSS,JS를 사용하겠다
@@ -490,20 +477,14 @@
 3. **Controller가 없을때 2**
     - `EntityFramework 사용하여 뷰가 포함된 MVC 컨트롤러` 또는 `읽기/쓰기 동작이 포함된 컨트롤러` 중 선택
     - BoardController 클래스 생성
-
         <img src="./image/web0009.png" width="600">
-
     - 메서드 Index() 부터 Delete() 까지 총 8개 메서드 생성
     - Models 폴더에서 모델 Board.cs 추가
     - 인덱스 마다 뷰 추가. Razor 뷰 선택(Razor 뷰 - 비어있음 아님!)
-
         <img src="./image/web0010.png" width="600">
-
         <img src="./image/web0011.png" width="600">
-
         - 템플릿 : Create, Delete, Details, List, Edit (DB의 CRUD와 매핑)
         - 모델 클래스 : MVC, MVVN에서 Model 클래스가 포함되어야 함 (DB 설정이 필요)
-
     - Razor 뷰 선택
     - Index.cshtml 생성
     - _Layout.cshtml 에 내비게이션 메뉴 추가
@@ -512,11 +493,10 @@
 
 <img src="./image/web0012.png" width="650">
 
-- MVVM과 MVC 패턴의 구조에대 설명할 수 있어야 함!
+- MVVM과 MVC 패턴의 구조에 대해 설명할 수 있어야 함!
 - 현재 기본적인 웹개발의 표준. Java도 Spring Boot MVC
 - 프론트엔드가 심각한 스파게티 코드였으면 현재는 최소화하고 있음
 - Razor 구문 : @로 시작하는 C# 문법에 대한 이해
-
 - DB 연동방법
     - 전통적인 방법 : WPF나 윈앱에서 연동방법. SQL쿼리문을 직접 작성, 실행
     - 현대적인 방법 : EntityFramework 방식. 쿼리를 사용하지 않음
@@ -530,7 +510,6 @@
 4. wwwroot 내 vendor 에서 Bootstrap 관련 폴더삭제   
     - php 관련도 추후 삭제 필요
 5. _Layout.cshtml 작업
-
     <img src="./image/web0013.png" width="600">
 
 
@@ -602,9 +581,9 @@
     <img src="./image/web0015.png" width="600">
 
 9. 작업화면
-
-        <!!!!!!!!동영상삽입!!!!!!!!>
-
+    <Web0003.mp4 동영상 삽입!!!!!!!!!!!!!!!!!>
+    https://github.com/user-attachments/assets/33b49f9b-946b-44ae-9ad2-ae6521bf1e7d
+    
 
 ## 7일차
 
@@ -708,7 +687,6 @@
     <li><a asp-controller="Home" asp-action="Index" class="@ActiveClass("Home", "Index")">Home</a></li>
     ```
 
-
 ## 8일차
 
 #### ASP.NET Core MVC - Kelly Portfolio 디자인 클로닝(계속)
@@ -802,12 +780,291 @@
 
         <img src="./image/web0023.png" width="600">
 
-
 ## 9일차 (25.06.04.)
+
+### ASP.NET Core 실습
 
 #### ASP.NET Core MVC - Kelly Portfolio 클로닝 (계속)
 1. 뉴스페이징 완료
-2. 게시판 완료
-3. 정적페이지 DB연동
-4. 한글화
-5. 마무리
+    - 페이징 첫페이지, 이전페이지, 다음페이지, 마지막페이지 링크 추가
+    - Bootstrap 디자인 적용
+2. 검색
+    - 검색 폼 추가
+    - 컨트롤러 Index() 메서드에 검색어 파라미터 추가
+    - 쿼리 변경(카운트 쿼리, 저장프로시저 검색부분)
+    - 페이징 부분 GET메서드에 검색어 파라미터추가
+
+        <img src="./image/web0024.png" width="600">
+
+3. 한글화
+    - 각 페이지 한글로 입력변경
+
+4. 정적페이지 DB연동
+    - About, Skill 모델 생성
+    - NuGet 패키지 관리자 콘솔
+        - Add-Migration
+        - Update-Database
+    - HomeController의 About() 메서드에서 DB연동
+    - About.cshtml에 데이터변수 사용
+
+5. 회원가입/로그인
+    - ASP.NET Core Identity API
+    - 사용자, 암호, 프로필데이터, 역할, 메일확인... 작업과 Google OAuth 연동 가능
+    - NuGet 패키지 - Microsoft.AspNetCore.Identity.EntityFrameworkCore 설치
+    - Models.ApplicationDbContext 에서 기반클래스를 IdentityDbContext로 변경
+    - Program.cs 내용 추가
+
+        ```cs
+        // ASP.NET Core Identity 설정!
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+
+        var app = builder.Build();
+
+        // ...
+
+        app.UseStaticFiles();
+
+        app.UseRouting();
+        app.UseAuthentication();  // ASP.NET Core Identity 계정!
+        app.UseAuthorization();   // 권한
+        ```
+
+    - NuGet 패키지 관리자 콘솔
+
+        ```bash
+        PM> Add-Migration InitialIdentity
+        Build started...
+        Build succeed.
+        Done.
+        PM> Update-database
+        // DB생성
+        Done.
+        ```
+
+    - MySQL Workbech에서 추가된 7개 AspNet* 테이블 확인
+
+        <img src="./image/web0025.png" width="450">
+
+## 10일차
+
+### Visual Studio 개발 Tip
+- 이전 솔루션을 복사하고 나서 MSBuild에서 오류가 발생할 가능성이 있음
+- 이를 대비해서 프로젝트 내 bin, obj 폴더를 삭제 후
+- VS를 다시 실행하면 bin, obj 폴더를 재생성
+
+### ASP.NET Core 실습
+
+#### ASP.NET Core MVC - Kelly Portfolio 클로닝 끝
+1. 회원가입/로그인 계속
+    - 자동생성 테이블
+        - AspNetRoleClaims : 역할 내 모든 사용자에게 부여되는 클레임(권리 - 편집가능, 작성가능, ...)
+        - AspNetRoles : 역할저장 테이블(관리자, 사용자, 뷰어...)
+        - AspNetUserClaims : 사용자가 소유한 클레임
+        - AspNetUserLogins : 사용자를 로그인에 연결
+        - AspNetUserRoles : 사용자테이블, 역할테일을 연결하는 Join entity
+        - `AspNetUsers` : 사용자정보 테이블
+        - AspNetUserTokens : 사용자 인증토큰 테이블
+    - Models.RegisterModel 클래스 생성
+    - AccountController 클래스 생성
+        - Register(), Login() Get/Post 메서드 추가
+    - Regiser 뷰 추가
+    - Login 뷰 추가
+    - 각 기능별 버튼, 링크 추가
+
+2. 회원가입 정보 확장
+    - Models.CustomUser 클래스 생성. IdentityUser를 상속. City, Mobile, Hobby 속성 추가
+    - Program.cs 에서 IdentityUser -> CustomUser로 변경
+    - AccountController 에서 IdentityUser -> CustomUser로 변경
+    - _Layout.cshtml, News.Index.cshtml, News.Detail.cshtml에 IdentityUser -> CustomUser로 변경
+    - ApplicationDbContext.cs에서 IdentityUser -> CustomUser로 변경
+    - NuGet 패키지 관리자 콘솔에서
+        - Add-Migration (이름) 실행, Update-Database 실행
+    - Account.Register.cshtml 입력양식 추가
+    - AccountController.cs Register() Post 메서드 수정
+    - Program.cs에서 패스워드 정책을 간단하게 변경
+
+3. 게시판 준비
+    - MySql Workbench에서 Board 테이블 생성
+    - NuGet 패키지 관리자 콘솔에서 DB스캐폴드
+        - Scaffold-DbContext "Server=localhost;..." Pomelo.EntityFrameworkCore.MySql -OutputDir BackupModels
+    - BackupModels에서 필요한 모델클래스를 Models 이전, 수정
+    - ApplicationDbContext에 `DbSet<Board>` 추가
+    - Controller에 BoardController 클래스 스캐폴딩 생성
+
+4. 이후 작업
+    - HomeController Contact() Post메서드 신규 추가
+    - 메일관련 작업 - Pendding
+
+## 11일차
+
+### ASP.NET Core API서버(Web API)
+- 2000년도 초반, 웹서비스 이름의 변형
+- 웹을 통해서 데이터전달이 목적
+- API서버, WebAPI, RESTful Service, OpenAPI(공용)... 
+- 초기에는 XML을 데이터 전달로 사용
+- XML의 방대한 데이터크기때문에 현재는 JSON으로 거의 이전(XML의 1/3수준)
+- WebAPI 서버 사용처
+    - 하나의 서비스로 여러가지 앱에서 같이 사용할때
+    - 회사 ERP를 웹사이트, 모바일, PC앱으로 동시에 사용할때
+    - 알라딘 웹사이트, 모바일, PC책뷰어...
+
+#### Web API 만들기
+1. ASP.NET Core 웹 API로 프로젝트 생성
+2. Swagger 화면 확인
+3. Prgram.cs 소스 분석
+4. WeatherForecast 모델 클래스 확인
+5. WeatherForecastController 클래스 확인
+
+#### 웹서비스를 테스트 툴
+1. 웹브라우저 - URL을 입력, json뷰어확인
+2. Swagger UI - Visual Studio에 포함
+3. [Postman](https://www.postman.com/) - 가장 기능이 다양
+
+    <img src="./image/web0029.png" width="600">
+
+#### 웹서비스 4가지 메서드
+- 일반 웹사이트에서의 GET/POST는 동일
+- `GET` - 리소스(데이터) 조회
+- `POST` - 요청 데이터 처리(저장, 수정, 삭제). 주로 등록에 사용
+- `PUT` - 리소스 대체, 주로 수정에 사용
+- `DELETE` - 리소스 삭제, 주로 삭제에 사용
+- PATCH - 리소스 부분 변경(수정). 거의 사용안함. PATCH메서드를 지원하지 않으면 PUT으로 대체
+
+#### WebAPI CRUD 작업 연습
+|API|설명|Request body|Response body|
+|:--|:--|:--|:--|
+|GET ~/api/books|모든 책정보 가져오기|None|책정보 배열|
+|GET ~/api/books/{id}|특정 책정보 가져오기|None|책정보 한 건|
+|POST ~/api/books|새 책 추가|Book 데이터|Book 데이터|
+|PUT ~/api/books/{id}|기존책 수정|Book|None|
+|DELETE ~/api/books/{id}|기존책 삭제|None|None|
+
+<img src="./image/web0026.png" width="600">
+
+1. WebAPI 프로젝트 생성
+2. Models.Book 모델 클래스 생성
+3. EntityFramework NuGet패키지 설치
+    - Microsoft.EntityFrameworkCore
+    - Pomelo.EntityFrameworkCore.MySql    
+4. appsettings.json DB연결문자열 추가
+5. MySQL Book 테이블 생성
+6. Models.AppDbContext 클래스 생성
+7. Program.cs AppDbContext 초기화 추가
+8. 스캐폴딩으로 Controller 생성
+    - API > EntityFramework 사용 동작이 포함된 API컨트롤러 선택
+
+    <img src="./image/web0027.png" width="600">
+9. 서버 실행
+
+    <img src="./image/web0028.png" width="600">
+
+#### OpenAPI 형식 WebAPI 연습
+1. IoT 센서데이터를 웹API 서비스
+2. Python에서 더미데이터 100만건 생성
+3. WebAPI 프로젝트 생성
+4. EntityFramework NuGet패키지 설치
+5. appsettings.json DB연결문자열 추가
+6. MySQL iot_datas 테이블 생성
+7. Models.iot_datas 클래스 생성
+8. Models.AppDbContext 클래스 생성
+9. Program.cs AppDbContext 초기화 추가
+10. 스캐폴딩으로 Controller 생성
+    - Get 메서드 외 모두 삭제
+11. Get 메서드 파라미터 추가, 쿼리 실행 로직 추가
+12. Swagger UI에서 테스트
+
+    <img src="./image/web0030.png" width="600">
+
+13. 웹브라우저 실행 확인
+
+    <img src="./image/web0031.png" width="600">
+
+## 12일차
+
+### ASP.NET Core API서버(계속)
+
+#### WebAPI 서버 + 윈앱(WPF)
+- 웹사이트나 WPF 윈앱에서는 DB연동 없이도 데이터 처리가 가능!!
+- Todo List 오늘할일 API 서비스
+
+    |API|설명|Request body|Response body|
+    |:--|:--|:--|:--|
+    |GET /api/todoitems|모든 할일정보 가져오기|None|할일정보 배열|
+    |GET /api/todoitems/{id}|특정 할일정보 가져오기|None|할일정보 한 건|
+    |POST /api/todoitems|새 할일 추가|todoItem 데이터|todoItem 데이터|
+    |PUT /api/todoitems/{id}|기존할일 수정|todoItem 데이터|None|
+    |DELETE /api/todoitems/{id}|기존할일 삭제|None|None|
+
+    1. 프로젝트 생성
+    2. 패키지 설치
+    3. DB구성, 생성
+    4. 컨트롤러 생성(내용 생략, 위에 다있음)
+
+- WPF앱 API 사용 - 데이터포털로 부산맛집정보앱, 영화즐겨찾기와 동일(GET메서드만 사용)
+    1. WPF 프로젝트 생성
+    2. NuGet 패키지 관리에서 패키지 설치
+        - MahApps.Metro / IconPacks
+        - Microsoft.AspNet.WebApi.Client 
+    3. UI 설정
+    4. 모델설정, 컬렉션 설정
+    5. WebAPI 호출로 CRUD 구현
+
+    <img src="./image/web0032.png" width="600">
+
+## 13일차
+
+### ASP.NET Core API서버(계속)
+
+#### WebAPI 서버 + 웹사이트
+- WebAPI 서버는 전일자 프로젝트 사용
+- ASP.NET Core 프로젝트에서 정적페이지HTML, 동적페이지cshtml 동시 사용가능
+- 웹사이트만 새로 생성
+    1. ASP.NET Core 비어있음 으로 프로젝트 생성
+    2. wwwroot/html/index.html 파일 생성 - VS Code의 Live Server 예제와 동일(정적페이지)
+    3. Program.cs에서 MVC패턴 관련된 로직 추가
+    4. Controllers/HomeController.cs 생성
+    5. Index() 메서드에서 뷰 추가 - ASP.NET Core 동적페이지
+    6. Views 폴더 하위 파일들이 필요
+        - _ViewImports.cshtml
+        - _ViewStart.cshtml
+        - Shared/_Layout.cshtml.css 
+    7. index.html에 화면UI 구현
+    8. AJAX로 WebAPI 호출하고 데이터를 화면에 뿌리는 로직 추가
+    9. input 태그로 검색부분 구현
+        - Javascript와 데이터를 주고받으면 form태그가 없어도 됨
+        - `<form>` - 서버사이드와 데이터를 주고 받을때 필요
+    10. 입력부분 구현
+    11. jQuery 로직 구현
+
+- AJAX : Asyncronous Javascript And Xml. 자바스크립트에서 비동기로 메서드를 호출 기술
+    - 예전에 XML로만 데이터 전달. 현재는 Json으로 이전 중
+
+- CORS Policy Block : Cross-Origin Resource Sharing. 다른 출처 리소스 접근허용 보안 메커니즘
+    - 아무나 URL로 호출을 못하도록 웹페이지 보안설정
+    - WebAPI 서비스에서 Program.cs에 CORS 호출권한 설정 추가
+    - 프론트엔드는 CORS 설정 필요없음
+
+    <img src="./image/web0033.png" width="400">
+
+## 14일차
+
+### ASP.NET Core API서버(계속)
+
+#### WebAPI 서버 + 웹사이트(계속)
+- 할일 삭제
+
+### AWS 클라우드 업로드
+- AWS 라이트세일로 웹사이트 업로드
+
+### 부가적인 기능
+- OAuth (구글로그인)
+- 파일업로드
+- WebAPI 서버 + 웹사이트 할일 수정
+
+### MyPortfolio 완성
+
+## 15일차
+
+### 전체 마무리
