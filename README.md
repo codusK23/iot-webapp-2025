@@ -1045,23 +1045,154 @@
 
     <img src="./image/web0033.png" width="400">
 
+
 ## 14일차
 
 ### ASP.NET Core API서버(계속)
 
 #### WebAPI 서버 + 웹사이트(계속)
-- 할일 삭제
+- 할일 수정/삭제
+- 실행화면
+
+    <img src="./image/web0034.png" width="600">
+
+- 결론
+    - WebAPI로 백엔드를 운영하면 프론트는 모두 사용가능(윈앱, 웹앱, 모바일앱)
 
 ### AWS 클라우드 업로드
-- AWS 라이트세일로 웹사이트 업로드
+- 클라우드서비스 사용 : 어디서나 웹사이트 공개
+- 온프레미스 : 직접 서버를 구축. DB서버구축, 웹서버구축 등 직접 운영
+    - 서버 하드웨어 구매, 서버실 구축, UPS구성, 네트워크 스위치구성
+    - OS구매, SW구매, 운영환경구성, 개발환경구성
+    - 운영하면 문제 해결, 유지보수
+- 클라우드 : 서버구축 필요없음. DB서버 신청 생성
+    - 서버실 구축x, 하드웨어 구매x, SW구매x, 운영문제 관리x
+    - 최초 구축비용이 들지 않음
+    - 사용료가 저렴하지 않음
+
+- AWS 라이트세일 - https://aws.amazon.com/ko/lightsail/
+    - 기존 AWS보다 저렴하게 사용할 수 있는 서비스
+
+#### AWS 라이트세일에 웹서버 올리기
+1. 인스턴스 생성
+    1. Microsoft Windows > Windows Server 2019 > 
+    2. 네트워크 듀얼스택 
+    3. 크기, 월별 $9.5 선택 `90일 무료`
+    4. 인스턴스 이름 
+    5. 인스턴스 생성
+2. 인스턴스 관리 > RDP를 사용하여 연결
+    1. 초기화 대기(네트워크 나올때까지, 1분가량)
+    2. Network2 허용 Yes 클릭
+    3. Server Manager 오픈
+        - Configure this local server
+        - IE Enhanced Security Config : ON(웹사이트 오픈 불가) -> OFF
+3. 필요 SW 다운로드
+    1. MySQL Installer for Windows
+    2. Chrome browser(option)
+    3. FileZilla FTP Server 
+4. MySQL 설치
+    1. Custom 선택
+    2. MySQL Server 8.0.42 - x64 만 선택, 설치 후 Next
+    3. 일반적으로 Next
+    4. Authentication Method > Use Legacy Authentication (Retain MySQL 5.x Compatibility) 선택
+        - 암호정책이 간결
+        - 대신 AWS는 IP나 공개된 상황이라 간단한 암호하면 절대 안됨
+    5. 나머지는 Next, Execute 실행
+    6. 마지막에 Finish 클릭
+    7. Firewall & Network Protection 실행 > Advanced setting 선택
+        - Inbound Rules > Port 3306 확인, 없으면 생성
+    8. 라이트세일 인스턴스 관리 > 네트워크
+        - IPv4 방화벽에 규칙추가
+    9. MySQL Workbench 접속 생성/확인
+
+5. FileZilla FTP 서버 설치
+    1. 설치는 Next로 설치
+    2. 서버 시작 후
+    3. 메뉴 Server > Configure
+        - Server listener의 아이피 0.0.0.0 -> 본인의 내부서버 아이피로 변경
+    4. 프로토콜 셋팅 > FTP and FTP over TLS 메뉴
+        - Connection Security
+            - Generate new 버튼 클릭 후 OK
+        - Passive Mode
+            - Use custom port range 클릭
+            - From : 55000
+            - To : 55999   
+    5. 탐색기 오픈, Website 폴더 생성     
+    6. Right Management > Users 사용자 계정 생성
+        - 사용자 생성
+        - Mount points
+            - Virtual Path : / (root)
+            - Native path : 탐색기에서 만든 Website 지정
+    7. Firewall & Network Protection > Advanced setting
+        - Inbound Rules
+        - New Rule
+            - Program FileZilla Server 선택
+            - 전부 오픈
+    8. 라이트세일 인스턴스 관리
+        - 네트워크 IPv4 방화벽에서 21, 55000~55999 포트 오픈
+
+    9. 로컬PC에 파일질라 클라이언트 설치
+        - 접속확인
+
+6. Visual Studio 프로젝트 오픈(MyPortfolioWebApp)
+    1. 게시 > FTP/FTPS 선택
+    2. 서버 - ftps://aws-public-ip
+    3. 사이트경로 - /
+    4. 수동모드 - 체크
+    5. 사용자이름/패스워드 - FileZilla 서버 설정한 계정
+    6. 연결유효성후 인증서 승인
+
+7. MySQL Workbench
+    1. Local DB의 데이터베이스 Server > Data Export로 백업
+    2. AWS MySQL Workbench에서 FTP로 전달한 sql을 Server > Data Import로 복구
+    3. 저장프로시저는 쿼리 복사해서 재실행
+
+
+## 15일차
+
+### AWS 클라우드 업로드
+
+#### 14일차 확인한 문제
+- FileZilla FTP와 연동 VS에서 FTP로 게시할 때 업로드 문제
+- 파일 자체는 업로드 성공, 실패 메시지가 리턴
+- 다른 방법
+    - IIS + WebDeploy : 현재 문제 발생
+    - IIS FTP 사용 : 해결방법
+
+#### AWS 라이트세일 웹서버 올리기 (계속)
+1. 인스턴스 진입
+    1. 서비스 오픈 > FileZilla-Server 중지 (Startup type Manual)
+    2. 서버 매니저 실행 -> Add roles and features
+        - Role-based or feature-based installation -> 자기 서버 선택 Next
+        - 아래 기능 설치
+            - WebServer IIS 선택 후 Add Features
+            - Health And Diagnostics -> Logginf Tool, Request Monitor 추가 선택
+            - Application Deployment -> ASP.NET 4.8, ISAPI Extenstions, ISAPI Filters 추가 선택
+            - FTP Server 아래 전부 선택
+    3. asp.net core hosting bundle 8.0 웹 브라우저 검색
+        - https://dotnet.microsoft.com/en-us/download/dotnet/8.0
+        - aspnetcore-runtime-8.0.17-win-x64.exe 그냥 설치
+    4. donet-hosting-8.0.17-win.exe 설치
+        - 콘솔(파워쉘)에서 iisreset 실행
+    5. IIS 서비스
+        - Modules -> AspNetCoreModuleV2가 있는지 확인
+        - Add FtpSite...
+            - 이름, 물리적 경로 선택
+            - IP/All Unssigned, Port/21, SSL/Allow SSL 선택
+            - Auth
 
 ### 부가적인 기능
 - OAuth (구글로그인)
 - 파일업로드
-- WebAPI 서버 + 웹사이트 할일 수정
 
-### MyPortfolio 완성
+#### 웹 사이트 파일 업로드 기능 구현
+1. Model.News
+    - UploadFile 속성 추가
+2. MySQL Workbench
+    - New 테이블 UploadFile 컬럼 추가
+    - 운영중인 테이블에 새 컬럼을 추가하면 `Nor null`로 설정 불가
 
-## 15일차
+### MyPortfolio
 
-### 전체 마무리
+- 게시판 생성
+    - 

@@ -3,8 +3,7 @@
 @model IEnumerable<MyPortfolioWebApp.Models.Board>
 
 @{
-    // ViewData["Title"] = "Index";
-
+    ViewData["Title"] = "Index";
 }
 @{
     // 컨트롤러 변수값이 바로 사용할 수 없음
@@ -21,8 +20,8 @@
 
 <section id="board" class="section">
     <div class="container section-title" data-aos="fade-up">
-        <h2>Board</h2>
-        <p>Lorem ipsum dalat sit amet.</p>
+        <h2>자유 게시판</h2>
+        <p>자유롭게 글을 작성해 주세요.</p>
     </div>
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -113,7 +112,6 @@
                     {
                         <li class="page-item"><a href="?page=@totalPage&search=@search" class="page-link">≫</a></li>
                     }
-
                 </ul>
             </div>
         </div>
