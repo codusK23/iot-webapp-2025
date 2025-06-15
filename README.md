@@ -131,7 +131,9 @@
 - 변수 선언이 var(전역, 지역), let(지역)
 - 문장 끝에 ; 생략이 가능하지만 되도록 사용할 것
 - 키워드
+
     <img src="./image/web0001.png" width="600">
+
 - 화면메시지박스 : alert()
 - 디버깅 출력 : console.log()
     ```js
@@ -208,7 +210,9 @@
     ```
 - 모든 DOM 객체에 접근할때 `$(선택자|아이디|클래스)` 로 처리
 - jQuery on('이벤트', function() {}) 또는 이벤트(function () {})
+
     <img src="./image/web0002.png" width="600">
+
 - [소스](./day02/html09.html)
 
 #### Vanilla JS
@@ -246,11 +250,14 @@
 #### 부트스트랩 시작
 - [시작](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - GetStarted에 나와있는 CSS와 JS를 웹페이지에 붙여넣기
+
     <img src="./image/web0003.png" width="600">
 
 #### 부트스트랩 학습
 - 버튼 사용법
+
     <img src="./image/web0004.png" width="600">
+
 - 미디어쿼리 : 웹페이지 사이즈에 따른 사용법을 위해 필요
     - Bootstrap에서 sm, md, lg 등의 infix를 사용할 경우가 많음  
     - X-Small : None(사용할 이름없음) (< 576px)
@@ -291,7 +298,9 @@
     - Pagination : 게시판 페이지 컴포넌트
     - Progress, Spinners : 프로그레스바, 대기용 컴포넌트
     - Carousel : 이미지 갤러리
+
     <img src="./image/web0005.png" width="600">
+
 - 아이콘
     - [사이트](https://icons.getbootstrap.com/)
     - 부트스트랩이 지원해주는 아이콘
@@ -330,7 +339,9 @@
 - HTML5 + CC3 + JS 응용예제
 - Modern Business 템플릿 클로닝
     - https://startbootstrap.com/template/modern-business 
+
     <img src="./image/web0006.png" width="700">
+
     - 압축파일 다운로드 후 압축해제
 
 #### HTML5 Responsive Web template 
@@ -374,13 +385,17 @@
 - ASP : Active Server Page. Classic ASP라고 부름. 동적인 웹페이지를 만드는 기술
 - 프론트엔드(HTML + CSS + JS) 상에서 동작하는 기술을 동적 웹페이지라고 부르지 않음
 - 동적 웹페이지 : 사용자가 웹서버에 요청을 해서 값이 변경되는 것
+
     <img src="./image/web0007.png" width="600">
+
 - IIS : Internet Information Service. MS가 윈도우 운영체제에 포함시킨 `웹 서버`
     - 윈도우 프로그램 추가 제거(appwiz.cpl)
     - 윈도우 기능 켜기/끄기 > 인터넷 정보 서비스 클릭 후 확인
 - 윈도우 설정은 일반 사용자용, 제어판은 개발자용
     - 제어판 > Windows Tools > IIS(인터넷 정보 서비스) 관리자
+
     <img src="./image/web0008.png" width="600">
+
 - Java가 1995년 출현하면서 Classic ASP, Classic VB 등의 옛날 MS기술이 위협
 - 2000년 초반에 .NET 프레임워크를 출시
     - C#, VB(.NET) 새로운 언어 들이 포함됨
@@ -475,12 +490,17 @@
 3. **Controller가 없을때 2**
     - `EntityFramework 사용하여 뷰가 포함된 MVC 컨트롤러` 또는 `읽기/쓰기 동작이 포함된 컨트롤러` 중 선택
     - BoardController 클래스 생성
+
         <img src="./image/web0009.png" width="600">
+
     - 메서드 Index() 부터 Delete() 까지 총 8개 메서드 생성
     - Models 폴더에서 모델 Board.cs 추가
     - 인덱스 마다 뷰 추가. Razor 뷰 선택(Razor 뷰 - 비어있음 아님!)
+
         <img src="./image/web0010.png" width="600">
+
         <img src="./image/web0011.png" width="600">
+
         - 템플릿 : Create, Delete, Details, List, Edit (DB의 CRUD와 매핑)
         - 모델 클래스 : MVC, MVVN에서 Model 클래스가 포함되어야 함 (DB 설정이 필요)
     - Razor 뷰 선택
@@ -562,14 +582,18 @@
     - MySQL Workbench 해당 스키마(DB)에 News 테이블 생성 확인, 더미데이터 입력
     - NewsController 클래스 생성
     - `Entity Framework를 사용하여 뷰가 포함된 MVC 컨트롤러` 선택
+
     <img src="./image/web0014.png" width="600">
+
 7. Controller 설명
     - CRUD 중
         - SELECT는 GET메서드만 존재
         - 데이터가 처리되면 INSERT, UPDATE, DELETE 기능에는 GET, POST메서드 둘 다 필요
         - form 태그의 `asp-action`이 POST 메서드
 8. 개발콘솔에서 CRUD 로그 확인
+
     <img src="./image/web0015.png" width="600">
+
 9. 작업화면
     https://github.com/user-attachments/assets/92054b4b-d4d5-4ae2-bf19-9e71de600f55
 
@@ -622,6 +646,7 @@
 9. BookController 컨트롤러(Entity Framework를 사용하여 뷰가 포함된 MVC 컨트롤러) 생성
 10. _Layout.cshtml 네비게이션 메뉴 추가
 11. 실행확인
+
     <img src="./image/web0017.png" width="600">
 
 12. 자동으로 만들 경우의 문제점
@@ -631,10 +656,12 @@
     - public virtual Divtbl DivisionNavigation { get; set; } **= null!**; 
     - public virtual Divtbl? DivisionNavigation { get; set; } 로 변경
     - HACK : 자동 생성 후 수정 주석부분 확인 | BookController, Model, View 확인할 것
+
     <img src="./image/web9998.png" width="600">
 
 13. WebEditor 클라이언트 라이브러리 Trumbowyg 설치
     - 클라이언트 라이브러리 추가
+
     <img src="./image/web9997.png" width="600">
 
 14. Markdown Viewer
@@ -702,17 +729,21 @@
     - Trumbowyg 클라이언트 라이브러리 설치(NuGet패키지와 차이있음)
     - wwwroot > 마우스오른쪽 > 추가 > 클라이언트 쪽 라이브러리
     - Trumbowyg 검색 후 설치
+
         <img src="./image/web0020.png" width="500">
+
     - _Layout.cshtml에 css, js 링크 추가
     - Create.cshtml, Edit.cshtml `<input asp-for="Descrption">` -> `<textarea>` 로 변경
     - Site.js 마지막에 trumbowyg 초기화 함수 추가작성
     - 뷰어 라이브러리 : Westwind.AspNetCore.Markdown NuGet패키지 라이브러리
     - Detail.cshtml, Delete.cshtml에 라이브러리 using Westwind.AspNetCore.Markdown 추가
     - Description 태그 부분 수정 @Markdown.ParseHtmlString(Model.Description)
+
         <img src="./image/web0021.png" width="600">
 
 5. EntityFramework로 자동 생성된 테이블 컬럼타입변경
     - LONGTEXT로 타입이 지정된 컬럼은 사용여부에 따라 VARCHAR(num)로 변경
+
         <img src="./image/web0022.png" width="600">
 
 5. 페이징
@@ -750,6 +781,7 @@
         }
         ```
     - index.cshtml 게시판 영역 아래에 페이징부분 작성
+
         <img src="./image/web0023.png" width="600">
 
 
@@ -766,6 +798,7 @@
     - 컨트롤러 Index() 메서드에 검색어 파라미터 추가
     - 쿼리 변경(카운트 쿼리, 저장프로시저 검색부분)
     - 페이징 부분 GET메서드에 검색어 파라미터추가
+
         <img src="./image/web0024.png" width="600">
 
 3. 한글화
@@ -812,6 +845,7 @@
         ```
 
     - MySQL Workbech에서 추가된 7개 AspNet* 테이블 확인
+
         <img src="./image/web0025.png" width="450">
 
 
@@ -887,6 +921,7 @@
 1. 웹브라우저 - URL을 입력, json뷰어확인
 2. Swagger UI - Visual Studio에 포함
 3. [Postman](https://www.postman.com/) - 가장 기능이 다양
+
     <img src="./image/web0029.png" width="600">
 
 #### 웹서비스 4가지 메서드
@@ -905,6 +940,7 @@
 |POST ~/api/books|새 책 추가|Book 데이터|Book 데이터|
 |PUT ~/api/books/{id}|기존책 수정|Book|None|
 |DELETE ~/api/books/{id}|기존책 삭제|None|None|
+
 <img src="./image/web0026.png" width="600">
 
 1. WebAPI 프로젝트 생성
@@ -918,9 +954,11 @@
 7. Program.cs AppDbContext 초기화 추가
 8. 스캐폴딩으로 Controller 생성
     - API > EntityFramework 사용 동작이 포함된 API컨트롤러 선택
+
     <img src="./image/web0027.png" width="600">
 
 9. 서버 실행
+
     <img src="./image/web0028.png" width="600">
 
 #### OpenAPI 형식 WebAPI 연습
@@ -937,9 +975,11 @@
     - Get 메서드 외 모두 삭제
 11. Get 메서드 파라미터 추가, 쿼리 실행 로직 추가
 12. Swagger UI에서 테스트
+
     <img src="./image/web0030.png" width="600">
 
 13. 웹브라우저 실행 확인
+
     <img src="./image/web0031.png" width="600">
 
 
@@ -972,6 +1012,7 @@
     3. UI 설정
     4. 모델설정, 컬렉션 설정
     5. WebAPI 호출로 CRUD 구현
+
     <img src="./image/web0032.png" width="600">
 
 
@@ -1005,6 +1046,7 @@
     - 아무나 URL로 호출을 못하도록 웹페이지 보안설정
     - WebAPI 서비스에서 Program.cs에 CORS 호출권한 설정 추가
     - 프론트엔드는 CORS 설정 필요없음
+
     <img src="./image/web0033.png" width="400">
 
 
@@ -1015,6 +1057,7 @@
 #### WebAPI 서버 + 웹사이트(계속)
 - 할일 수정/삭제
 - 실행화면
+
     <img src="./image/web0034.png" width="600">
 
 - 결론
@@ -1126,12 +1169,16 @@
             - Application Deployment -> ASP.NET 4.8, ISAPI Extenstions, ISAPI Filters 추가 선택
             - FTP Server 아래 전부 선택
     3. asp.net core hosting bundle 8.0 웹브라우저 검색
+
         <img src="./image/web0037.png" width="500">
+
         - https://dotnet.microsoft.com/en-us/download/dotnet/8.0
         - aspnetcore-runtime-8.0.17-win-x64.exe 그냥 설치
     4. dotnet-hosting-8.0.17-win.exe 설치
         - 콘솔(파워쉘)에서 iisreset 실행
+
         <img src="./image/web0038.png" width="600">
+
     5. IIS 서비스 
         - Modules -> `AspNetCoreModuleV2`가 있는지 확인
         - Add FtpSite...
@@ -1141,7 +1188,9 @@
             - Authorization : permission, READ/WRITE 둘다 체크
     6. Application Pool 생성
         - ASPNETCore Pool 생성
+
         <img src="./image/web0039.png">
+
     7. OS방화벽, AWS 인스턴스 방화벽
         - OS방화벽에는 21, 1024-65535 전부 오픈
         - AWS 인스턴스 네트워크도 동일하게 오픈
@@ -1183,6 +1232,7 @@
     - 업로드 크기를 제한을 두더라도 최대사이즈는 설정필요
 11. Program.cs 
     - 최대 업로드 크기 설정
+    
     <img src="./image/web0040.png" width="600">
 
 
