@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using WebApiApp01.Models;
 
@@ -11,7 +10,6 @@ namespace WebApiApp01
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             // CORS 설정
             builder.Services.AddCors(options =>
             {
@@ -22,7 +20,6 @@ namespace WebApiApp01
                         .AllowAnyMethod();
                 });
             });
-
 
             // DB연결 설정 초기화 로직
             builder.Services.AddDbContext<AppDbContext>(
@@ -38,7 +35,7 @@ namespace WebApiApp01
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-            app.UseCors("AllowFrontend");
+            app.UseCors("AllowFrontend");   // CORS 설정 사용
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
