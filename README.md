@@ -330,7 +330,8 @@
 ### 프론트엔드 활용
 - HTML5 + CSS3 + JS + BootStrap 응용예제
     - Bootstrap Image Gallery
-    https://github.com/user-attachments/assets/2d0dea4a-9007-4100-a9e1-b75115a9afc1
+
+    https://github.com/user-attachments/assets/6dcb9f74-d3ec-40a5-aea7-59b2b7a08d40
 
 
 ## 4일차
@@ -370,7 +371,8 @@
 8. 태그 내에 Bootstrap 클래스 적용
 9. Bootstrap Example의 테마 적용
 10. 전체화면
-    https://github.com/user-attachments/assets/4d928714-8f15-44d4-b5dd-096fcb2fb5a7
+
+    https://github.com/user-attachments/assets/5f3f4194-7c99-4d4f-897c-752a0d69f18a
 
 
 ## 5일차
@@ -595,7 +597,8 @@
     <img src="./image/web0015.png" width="600">
 
 9. 작업화면
-    https://github.com/user-attachments/assets/92054b4b-d4d5-4ae2-bf19-9e71de600f55
+   
+    https://github.com/user-attachments/assets/2184babe-292f-4bcc-bb2f-1c53815a797a
 
 
 ## 7일차
