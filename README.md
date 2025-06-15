@@ -1193,6 +1193,42 @@
     - 운영중인 테이블에 새 컬럼을 추가하면 `Nor null`로 설정 불가
 
 ### MyPortfolio
+- 자유게시판 만들기 - [코드](./MyPortfolioWeb/MyPortfolioWeb/)
+    - Board DB 생성 : Id, Email, Writer, Title, Contents, PostDate, ReadCount
+    - Model/News.cs, Controllers/NersController.cs, View/News 참고
+        - Email 항목 추가, Description -> Contents로 변경
+        - MySQL Workbench Procedures New_PagingBoard 추가
+            ```sql
+            CREATE DEFINER=`root`@`%` PROCEDURE `New_PagingBoard`(
+                startCount int,
+                endCount int,
+                search varchar(100)
+            )
+            BEGIN
+            SELECT * 
+                FROM (
+                SELECT ROW_NUMBER() OVER (ORDER BY PostDate DESC) AS rowNum,
+                        Id, Email, Writer, Title, Contents, Boardcol, ReadCount
+                    FROM Board
+                WHERE Title LIKE CONCAT('%', search, '%')
+                ) AS b
+                WHERE b.rowNum BETWEEN startCount AND endCount;
 
-- 게시판 생성
-    - 
+            END
+            ```
+    - if (signlnManager.IsSignedln(user)) 제거 : 로그인을 하지 않아도 누구나 글쓰기 가능
+    - Edit 할 때 Email readonly 추가
+    - View 추가 : VerifyEmail, VerifyEmailForDelete 
+        - VerifyEmail : Edit용 이메일 검증 뷰
+        - VerifyEmailForDelete
+            - Delete용 이메일 검증 뷰. 
+            - VerifyEmail 뷰를 Edit, Delete 모두 사용할 수 있게 했을 때 Delete 버튼 클릭 시 이메일 검증 후 Edit 뷰로 넘어가는 문제 발생
+            - Delete용 검증 뷰 새로 생성함으로 해결
+    - BoardController.cs GET/POST 추가
+        - VerifyEmail GET/POST
+        - VerifyEmailForDelete GET/POST
+        - 글쓰기 할 때 입력한 이메일과 일치 시 Edit, Delete 뷰로 이동
+        - 불일치 시 '이메일이 일치하지 않습니다.' 출력 
+    - 기본 작성자 : 익명
+    - 더미데이터 10000개 생성
+- 실행화면 (로그인하지 않은 상태)

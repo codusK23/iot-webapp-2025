@@ -77,7 +77,7 @@ namespace MyPortfolioWebApp.Controllers
         {
             var board = new Board
             {   // 여기 어캐 수정?
-                Writer = "관리자",
+                Writer = "익명",
                 PostDate = DateTime.Now,
                 ReadCount = 0,
             };
