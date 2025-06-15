@@ -532,7 +532,6 @@
     - ASP.NET Core 링크 asp-controller, asp-action 속성을 사용해야
 5. About.cshtml부터 Contact.cshtml까지
     - CSS 부터 적용
-   
 6. DB연동
     - NuGet 패키지
         - Bogus (Python Faker 라이브러리)
@@ -542,12 +541,10 @@
         - EntityFrameworkCore는 전부 Version Major 숫자가 일치해야 함(현재 8버전)
     - **EntityFramework** `Code First` 방식 - C#으로 클래스 작성하고 위저드를 통해서 DB를 만드는 방식
         - DB를 잘 몰라도 웹개발 가능토록 만든 기술
-
     - Model > News 클래스 생성
     - appsettings.json, DB연결문자열 추가
     - Model > ApplicationDbContext 클래스 생성
     - Progam.cs에서 초기화 설정에 DB연결을 추가
-
     - 도구>NuGet패키지 관리자> 패키지 관리자 콘솔로 진입. 아래의 1, 2번 명령어를 순차적 실행
         ```shell
         PM1> add-migration AddNewsToDatabase
@@ -565,19 +562,14 @@
     - MySQL Workbench 해당 스키마(DB)에 News 테이블 생성 확인, 더미데이터 입력
     - NewsController 클래스 생성
     - `Entity Framework를 사용하여 뷰가 포함된 MVC 컨트롤러` 선택
-
     <img src="./image/web0014.png" width="600">
-
 7. Controller 설명
     - CRUD 중
         - SELECT는 GET메서드만 존재
         - 데이터가 처리되면 INSERT, UPDATE, DELETE 기능에는 GET, POST메서드 둘 다 필요
         - form 태그의 `asp-action`이 POST 메서드
-
 8. 개발콘솔에서 CRUD 로그 확인
-
     <img src="./image/web0015.png" width="600">
-
 9. 작업화면
     https://github.com/user-attachments/assets/92054b4b-d4d5-4ae2-bf19-9e71de600f55
 
@@ -606,7 +598,6 @@
 3. appsetting.json에 DB연결 문자열 추가
 4. NuGet 패키지 관리자 콘솔에서 해당 프로젝트로 변경(기본프로젝트 드롭다운)
 5. 아래 내용 입력
-
     ```shell
     PM> dir
         디렉터리: C:/Source/iot-webapp-2025/day07/Day07Study
@@ -631,7 +622,6 @@
 9. BookController 컨트롤러(Entity Framework를 사용하여 뷰가 포함된 MVC 컨트롤러) 생성
 10. _Layout.cshtml 네비게이션 메뉴 추가
 11. 실행확인
-
     <img src="./image/web0017.png" width="600">
 
 12. 자동으로 만들 경우의 문제점
@@ -640,22 +630,17 @@
     - = null!로 정의되어 있어서 EF Core는 내부적으로 필수(NOT NULL) 관계라고 간주
     - public virtual Divtbl DivisionNavigation { get; set; } **= null!**; 
     - public virtual Divtbl? DivisionNavigation { get; set; } 로 변경
-
     - HACK : 자동 생성 후 수정 주석부분 확인 | BookController, Model, View 확인할 것
-
     <img src="./image/web9998.png" width="600">
 
 13. WebEditor 클라이언트 라이브러리 Trumbowyg 설치
     - 클라이언트 라이브러리 추가
-
     <img src="./image/web9997.png" width="600">
 
 14. Markdown Viewer
     - NuGet 패키지 관리자, Westwind.AspNetCore.Markdown 설치
-
 15. 메일관련
     - [소스확인](./ref/Day07Study/MyPortfolioWebApp/Controllers/HomeController.cs)
-
 16. 메뉴 활성화
     - _Layout.cshtml 내에 작성
 
@@ -684,6 +669,7 @@
     <li><a asp-controller="Home" asp-action="Index" class="@ActiveClass("Home", "Index")">Home</a></li>
     ```
 
+
 ## 8일차
 
 #### ASP.NET Core MVC - Kelly Portfolio 디자인 클로닝(계속)
@@ -710,35 +696,29 @@
     - Toastr 클라이언트 라이브러리 사용
         - Github 설명대로 css, js 링크 추가
     - _Notification.cshtml 코드 수정
-
 4. HTML 에디터 추가
     - 본문 내용을 HTML화 해서 괜찮은 디자인의 컨텐츠가 되도록 만드는 컴포넌트
     - 유사한 라이브러리 : Trumbowyg, CKEditor 5(기능최대), summernote, TinyMCE, Quill(단순)
     - Trumbowyg 클라이언트 라이브러리 설치(NuGet패키지와 차이있음)
     - wwwroot > 마우스오른쪽 > 추가 > 클라이언트 쪽 라이브러리
     - Trumbowyg 검색 후 설치
-
         <img src="./image/web0020.png" width="500">
-
     - _Layout.cshtml에 css, js 링크 추가
     - Create.cshtml, Edit.cshtml `<input asp-for="Descrption">` -> `<textarea>` 로 변경
     - Site.js 마지막에 trumbowyg 초기화 함수 추가작성
     - 뷰어 라이브러리 : Westwind.AspNetCore.Markdown NuGet패키지 라이브러리
     - Detail.cshtml, Delete.cshtml에 라이브러리 using Westwind.AspNetCore.Markdown 추가
     - Description 태그 부분 수정 @Markdown.ParseHtmlString(Model.Description)
-
         <img src="./image/web0021.png" width="600">
 
 5. EntityFramework로 자동 생성된 테이블 컬럼타입변경
     - LONGTEXT로 타입이 지정된 컬럼은 사용여부에 따라 VARCHAR(num)로 변경
-
         <img src="./image/web0022.png" width="600">
 
 5. 페이징
     - 웹페이지 게시판에서 가장 중요한 기능. 가장 일반적인 데이터 로딩 방식
     - 한 페이지에 대량의 데이터를 부르면 성능문제 발생
     - EntityFramework에서 쿼리, 저장프로시저 사용가능
-
         ```sql
         CREATE PROCEDURE `New_PagingBoard`(
             startCount int,
@@ -755,13 +735,10 @@
             WHERE b.rowNum BETWEEN startCount AND endCount;
 
         END
-        
         ```
-
     - 저장프로시저는 CALL New_PagingBoard(1, 10), CALL New_PagingBoard(11, 20) 식으로 호출
     - NewsController Index() 메서드 완전 수정!
     - index.cshtml에 Viewbag 영역 복사
-
         ```html
         @{
             // 컨트롤러 변수값이 바로 사용할 수 없음
@@ -772,10 +749,9 @@
             var totalPage = ViewBag.TotalPage;
         }
         ```
-
     - index.cshtml 게시판 영역 아래에 페이징부분 작성
-
         <img src="./image/web0023.png" width="600">
+
 
 ## 9일차 (25.06.04.)
 
@@ -790,12 +766,10 @@
     - 컨트롤러 Index() 메서드에 검색어 파라미터 추가
     - 쿼리 변경(카운트 쿼리, 저장프로시저 검색부분)
     - 페이징 부분 GET메서드에 검색어 파라미터추가
-
         <img src="./image/web0024.png" width="600">
 
 3. 한글화
     - 각 페이지 한글로 입력변경
-
 4. 정적페이지 DB연동
     - About, Skill 모델 생성
     - NuGet 패키지 관리자 콘솔
@@ -803,14 +777,12 @@
         - Update-Database
     - HomeController의 About() 메서드에서 DB연동
     - About.cshtml에 데이터변수 사용
-
 5. 회원가입/로그인
     - ASP.NET Core Identity API
     - 사용자, 암호, 프로필데이터, 역할, 메일확인... 작업과 Google OAuth 연동 가능
     - NuGet 패키지 - Microsoft.AspNetCore.Identity.EntityFrameworkCore 설치
     - Models.ApplicationDbContext 에서 기반클래스를 IdentityDbContext로 변경
     - Program.cs 내용 추가
-
         ```cs
         // ASP.NET Core Identity 설정!
         builder.Services.AddIdentity<IdentityUser, IdentityRole>()
@@ -829,7 +801,6 @@
         ```
 
     - NuGet 패키지 관리자 콘솔
-
         ```bash
         PM> Add-Migration InitialIdentity
         Build started...
@@ -841,8 +812,8 @@
         ```
 
     - MySQL Workbech에서 추가된 7개 AspNet* 테이블 확인
-
         <img src="./image/web0025.png" width="450">
+
 
 ## 10일차
 
@@ -869,7 +840,6 @@
     - Regiser 뷰 추가
     - Login 뷰 추가
     - 각 기능별 버튼, 링크 추가
-
 2. 회원가입 정보 확장
     - Models.CustomUser 클래스 생성. IdentityUser를 상속. City, Mobile, Hobby 속성 추가
     - Program.cs 에서 IdentityUser -> CustomUser로 변경
@@ -881,7 +851,6 @@
     - Account.Register.cshtml 입력양식 추가
     - AccountController.cs Register() Post 메서드 수정
     - Program.cs에서 패스워드 정책을 간단하게 변경
-
 3. 게시판 준비
     - MySql Workbench에서 Board 테이블 생성
     - NuGet 패키지 관리자 콘솔에서 DB스캐폴드
@@ -889,10 +858,10 @@
     - BackupModels에서 필요한 모델클래스를 Models 이전, 수정
     - ApplicationDbContext에 `DbSet<Board>` 추가
     - Controller에 BoardController 클래스 스캐폴딩 생성
-
 4. 이후 작업
     - HomeController Contact() Post메서드 신규 추가
     - 메일관련 작업 - Pendding
+
 
 ## 11일차
 
@@ -918,7 +887,6 @@
 1. 웹브라우저 - URL을 입력, json뷰어확인
 2. Swagger UI - Visual Studio에 포함
 3. [Postman](https://www.postman.com/) - 가장 기능이 다양
-
     <img src="./image/web0029.png" width="600">
 
 #### 웹서비스 4가지 메서드
@@ -937,7 +905,6 @@
 |POST ~/api/books|새 책 추가|Book 데이터|Book 데이터|
 |PUT ~/api/books/{id}|기존책 수정|Book|None|
 |DELETE ~/api/books/{id}|기존책 삭제|None|None|
-
 <img src="./image/web0026.png" width="600">
 
 1. WebAPI 프로젝트 생성
@@ -951,10 +918,9 @@
 7. Program.cs AppDbContext 초기화 추가
 8. 스캐폴딩으로 Controller 생성
     - API > EntityFramework 사용 동작이 포함된 API컨트롤러 선택
-
     <img src="./image/web0027.png" width="600">
-9. 서버 실행
 
+9. 서버 실행
     <img src="./image/web0028.png" width="600">
 
 #### OpenAPI 형식 WebAPI 연습
@@ -971,12 +937,11 @@
     - Get 메서드 외 모두 삭제
 11. Get 메서드 파라미터 추가, 쿼리 실행 로직 추가
 12. Swagger UI에서 테스트
-
     <img src="./image/web0030.png" width="600">
 
 13. 웹브라우저 실행 확인
-
     <img src="./image/web0031.png" width="600">
+
 
 ## 12일차
 
@@ -1007,8 +972,8 @@
     3. UI 설정
     4. 모델설정, 컬렉션 설정
     5. WebAPI 호출로 CRUD 구현
-
     <img src="./image/web0032.png" width="600">
+
 
 ## 13일차
 
@@ -1034,15 +999,12 @@
         - `<form>` - 서버사이드와 데이터를 주고 받을때 필요
     10. 입력부분 구현
     11. jQuery 로직 구현
-
 - AJAX : Asyncronous Javascript And Xml. 자바스크립트에서 비동기로 메서드를 호출 기술
     - 예전에 XML로만 데이터 전달. 현재는 Json으로 이전 중
-
 - CORS Policy Block : Cross-Origin Resource Sharing. 다른 출처 리소스 접근허용 보안 메커니즘
     - 아무나 URL로 호출을 못하도록 웹페이지 보안설정
     - WebAPI 서비스에서 Program.cs에 CORS 호출권한 설정 추가
     - 프론트엔드는 CORS 설정 필요없음
-
     <img src="./image/web0033.png" width="400">
 
 
@@ -1053,7 +1015,6 @@
 #### WebAPI 서버 + 웹사이트(계속)
 - 할일 수정/삭제
 - 실행화면
-
     <img src="./image/web0034.png" width="600">
 
 - 결론
@@ -1069,7 +1030,6 @@
     - 서버실 구축x, 하드웨어 구매x, SW구매x, 운영문제 관리x
     - 최초 구축비용이 들지 않음
     - 사용료가 저렴하지 않음
-
 - AWS 라이트세일 - https://aws.amazon.com/ko/lightsail/
     - 기존 AWS보다 저렴하게 사용할 수 있는 서비스
 
@@ -1104,7 +1064,6 @@
     8. 라이트세일 인스턴스 관리 > 네트워크
         - IPv4 방화벽에 규칙추가
     9. MySQL Workbench 접속 생성/확인
-
 5. FileZilla FTP 서버 설치
     1. 설치는 Next로 설치
     2. 서버 시작 후
@@ -1130,10 +1089,8 @@
             - 전부 오픈
     8. 라이트세일 인스턴스 관리
         - 네트워크 IPv4 방화벽에서 21, 55000~55999 포트 오픈
-
     9. 로컬PC에 파일질라 클라이언트 설치
         - 접속확인
-
 6. Visual Studio 프로젝트 오픈(MyPortfolioWebApp)
     1. 게시 > FTP/FTPS 선택
     2. 서버 - ftps://aws-public-ip
@@ -1141,7 +1098,6 @@
     4. 수동모드 - 체크
     5. 사용자이름/패스워드 - FileZilla 서버 설정한 계정
     6. 연결유효성후 인증서 승인
-
 7. MySQL Workbench
     1. Local DB의 데이터베이스 Server > Data Export로 백업
     2. AWS MySQL Workbench에서 FTP로 전달한 sql을 Server > Data Import로 복구
@@ -1162,35 +1118,73 @@
 #### AWS 라이트세일 웹서버 올리기 (계속)
 1. 인스턴스 진입
     1. 서비스 오픈 > FileZilla-Server 중지 (Startup type Manual)
-    2. 서버 매니저 실행 -> Add roles and features
+    2. Server Manager 실행 -> Add roles and features
         - Role-based or feature-based installation -> 자기 서버 선택 Next
         - 아래 기능 설치
             - WebServer IIS 선택 후 Add Features
             - Health And Diagnostics -> Logginf Tool, Request Monitor 추가 선택
             - Application Deployment -> ASP.NET 4.8, ISAPI Extenstions, ISAPI Filters 추가 선택
             - FTP Server 아래 전부 선택
-    3. asp.net core hosting bundle 8.0 웹 브라우저 검색
+    3. asp.net core hosting bundle 8.0 웹브라우저 검색
+        <img src="./image/web0037.png" width="500">
         - https://dotnet.microsoft.com/en-us/download/dotnet/8.0
         - aspnetcore-runtime-8.0.17-win-x64.exe 그냥 설치
-    4. donet-hosting-8.0.17-win.exe 설치
+    4. dotnet-hosting-8.0.17-win.exe 설치
         - 콘솔(파워쉘)에서 iisreset 실행
-    5. IIS 서비스
-        - Modules -> AspNetCoreModuleV2가 있는지 확인
+        <img src="./image/web0038.png" width="600">
+    5. IIS 서비스 
+        - Modules -> `AspNetCoreModuleV2`가 있는지 확인
         - Add FtpSite...
             - 이름, 물리적 경로 선택
-            - IP/All Unssigned, Port/21, SSL/Allow SSL 선택
-            - Auth
+            - IP/All Unassigned, Port/21, SSL/Allow SSL 선택
+            - Authentication : Basic, 사용자 Administrator, 암호는 인스턴스 암호사용
+            - Authorization : permission, READ/WRITE 둘다 체크
+    6. Application Pool 생성
+        - ASPNETCore Pool 생성
+        <img src="./image/web0039.png">
+    7. OS방화벽, AWS 인스턴스 방화벽
+        - OS방화벽에는 21, 1024-65535 전부 오픈
+        - AWS 인스턴스 네트워크도 동일하게 오픈
+    8. IIS 서비스 
+        - WebSite 생성 > Add Website
+        - SiteName 옆 Applicaiton Pool을 Select버튼, ASPNetCore를 선택!
+2. 90일 이후
+    - AWS 라이트세일 내
+    - 비용발생, 반드시 인스턴스 삭제할 것    
 
 ### 부가적인 기능
-- OAuth (구글로그인)
 - 파일업로드
+- OAuth (구글로그인)
 
-#### 웹 사이트 파일 업로드 기능 구현
+#### 웹사이트 파일업로드 기능 구현
 1. Model.News
     - UploadFile 속성 추가
 2. MySQL Workbench
-    - New 테이블 UploadFile 컬럼 추가
-    - 운영중인 테이블에 새 컬럼을 추가하면 `Nor null`로 설정 불가
+    - News 테이블 UploadFile 컬럼 추가
+    - 운영중인 테이블에 새 컬럼을 추가하면 `Not Null로 설정불가`!
+3. New_PagingBoard 저장프로시저 오류 수정
+    - UploadFile 컬럼 추가되어 생기는 오류
+4. Views/News/Create.cshtml
+    - 입력양식에 파일입력 추가
+    - form 태그에 파일업로드 enctype="multipart/form-data" 속성 추가
+5. wwwroot/upload 폴더 추가
+6. Controller/NewsController.cs
+    - Create() Post메서드에 파일 파라미터 추가
+    - 파일 저장 로직 추가
+7. Views/News/Details.cshtml, Delete.cshtml 동일
+    - 파일 다운로드 영역 추가
+8. Views/News/Edit.cshtml 
+    - 파일업로드 영역 추가(Create.cshtml과 유사)
+9. Controller/NewsController.cs 
+    - Edit() Post메서드에 파일 파라미터 추가
+    - 파일저장 로직 처리(Create() 메서드 로직 복사)
+10. VS IIS Express 사용시
+    - 최대 30MB 제약 걸려있음 - ERR_CONNECTION_RESET 발생
+    - 업로드 크기를 제한을 두더라도 최대사이즈는 설정필요
+11. Program.cs 
+    - 최대 업로드 크기 설정
+    <img src="./image/web0040.png" width="600">
+
 
 ## MyPortfolio
 - 자유게시판 만들기 - [코드](./MyPortfolioWeb/MyPortfolioWeb/)
