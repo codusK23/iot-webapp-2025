@@ -1,0 +1,42 @@
+﻿@model MyPortfolioWebApp.Models.Board
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section id="board" class="section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>자유 게시판</h2>
+        <p>자유롭게 글을 작성해 주세요.</p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h4>이메일을 입력해주세요.</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md">
+                <form asp-controller="Board" asp-action="VerifyEmail" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <input type="hidden" name="action" value="edit" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group mb-3">
+                        <input type="text" name="email" class="form-control" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="확인" class="btn btn-sm btn-success btn-kelly" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
