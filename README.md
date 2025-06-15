@@ -1192,7 +1192,7 @@
     - New 테이블 UploadFile 컬럼 추가
     - 운영중인 테이블에 새 컬럼을 추가하면 `Nor null`로 설정 불가
 
-### MyPortfolio
+## MyPortfolio
 - 자유게시판 만들기 - [코드](./MyPortfolioWeb/MyPortfolioWeb/)
     - Board DB 생성 : Id, Email, Writer, Title, Contents, PostDate, ReadCount
     - Model/News.cs, Controllers/NersController.cs, View/News 참고
@@ -1232,3 +1232,6 @@
     - 기본 작성자 : 익명
     - 더미데이터 10000개 생성
 - 실행화면 (로그인하지 않은 상태)
+  
+https://github.com/user-attachments/assets/b09a6e20-c017-4d9e-9518-b446252c4c9f
+
